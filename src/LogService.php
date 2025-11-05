@@ -15,7 +15,7 @@ class LogService
 
         DB::table('logs')->insert([
             'user_id' => $user->id,
-            'team_id' => $user->team_id ?? null,
+            'team_id' => $user->current_team_id ?? null,
             'tool_name' => config('app.tool_name'),
             'action_type' => $actionType,
             'entity_type' => $entityType,
