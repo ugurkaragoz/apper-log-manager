@@ -4,18 +4,39 @@ namespace Apper\LogManager;
 
 trait Loggable
 {
-    protected static function bootLoggable()
+    /**
+     * Boot the Loggable trait for a model.
+     */
+    protected static function bootLoggable(): void
     {
-        static::created(function ($model) {
-            LogService::record('create', class_basename($model), $model->id, $model->toArray());
-        });
-
-        static::updated(function ($model) {
-            LogService::record('update', class_basename($model), $model->id, $model->getChanges());
-        });
-
-        static::deleted(function ($model) {
-            LogService::record('delete', class_basename($model), $model->id, $model->toArray());
-        });
+        // Observer'ı otomatik olarak kaydet
+        static::observe(LogObserver::class);
     }
+
+    /**
+     * Model için özel log entity type tanımla.
+     * Bu metodu override ederek özel isim verebilirsiniz.
+     */
+    public function getLogEntityType(): string
+    {
+        return class_basename($this);
+    }
+
+    /**
+     * Loglanmayacak alanları tanımla.
+     * Model'de bu property'yi override edebilirsiniz.
+     * 
+     * Örnek:
+     * protected $excludedFromLog = ['secret_key', 'private_data'];
+     */
+    // protected $excludedFromLog = [];
+
+    /**
+     * Sadece bu alanları logla.
+     * Model'de bu property'yi tanımlarsanız sadece bu alanlar loglanır.
+     * 
+     * Örnek:
+     * protected $loggableFields = ['name', 'email', 'status'];
+     */
+    // protected $loggableFields = [];
 }

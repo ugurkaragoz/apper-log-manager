@@ -30,6 +30,13 @@
       "Apper\\LogManager\\": "src/"
     }
   },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Apper\\LogManager\\LogServiceProvider"
+      ]
+    }
+  },
   "autoload-dev": {
     "psr-4": {
       "Apper\\LogManager\\Tests\\": "tests/"
