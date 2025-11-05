@@ -3,8 +3,13 @@
   "description": "Apper platformunda kullanıcı hareketlerini merkezi olarak kaydeden log sistemi",
   "type": "library",
   "license": "MIT",
-  "homepage": "https://github.com/yourusername/apper-log-manager",
-  "keywords": ["laravel", "logging", "audit", "apper"],
+  "homepage": "https://github.com/ugurkaragoz/apper-log-manager",
+  "keywords": [
+    "laravel",
+    "logging",
+    "audit",
+    "apper"
+  ],
   "authors": [
     {
       "name": "Uğur Karagöz",

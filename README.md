@@ -7,7 +7,7 @@ Apper platformunda kullanıcı hareketlerini merkezi olarak kaydeden log sistemi
 Bu paket private bir repository'dir. Composer ile kurulum için:
 
 ```bash
-composer config repositories.apper-log-manager vcs https://github.com/yourusername/apper-log-manager
+composer config repositories.apper-log-manager vcs https://github.com/ugurkaragoz/apper-log-manager
 composer require apper/log-manager
 ```
 
